@@ -6,8 +6,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 const LINKS = [
   { label: 'github',   url: 'https://github.com/Brutalino',           display: 'github.com/Brutalino' },
-  { label: 'linkedin', url: 'https://linkedin.com/in/fabio-marconi',      display: 'linkedin.com/in/fabio-marconi' },
-  { label: 'email',    url: 'mailto:fab.mar.2000@gmail.com',                    display: 'fab.mar.2000@gmail.com' },
+  { label: 'linkedin', url: 'https://linkedin.com/in/fabio-marconi',  display: 'linkedin.com/in/fabio-marconi' },
 ]
 
 const maxLabel = Math.max(...LINKS.map(l => l.label.length))

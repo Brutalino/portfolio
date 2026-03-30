@@ -22,7 +22,6 @@ const NEOFETCH_LINES = [
   { label: 'role',      value: 'AI Engineer & Full-Stack Dev'        },
   { label: 'passions',  value: 'AI, Automation, Robotics' },
   { label: 'location',  value: 'Bolzano, Italy'                      },
-  { label: 'email',     value: 'fab.mar.2000@gmail.com'              },
   { label: 'github',    value: 'github.com/Brutalino'                },
 ]
 

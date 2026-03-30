@@ -534,7 +534,6 @@ export default function App() {
       <nav className="topbar">
         <div className="topbar-inner">
         <div className="topbar-center">
-          <a href="mailto:fabio@example.com" className="topbar-email">fab.mar.2000@gmail.com</a>
         </div>
         <div className="topbar-right">
           <a className="topbar-link" onClick={() => document.querySelector('.about-section')?.scrollIntoView({ behavior: 'smooth' })}>about</a>
