@@ -601,14 +601,8 @@ export default function App() {
                   problem requires connecting dots across disciplines.
                 </p>
                 <p className="bio-text">
-                  My thesis pushed real-time action detection in video streams using CNNs and LSTMs.
-                  Outside of ML I've built full-stack crypto trading platforms, cross-platform mobile
-                  apps and whatever else seemed worth learning at the time. I write clean code, ask a
-                  lot of questions and ship things that work.
-                </p>
-                <p className="bio-text">
-                  I use AI heavily in my workflow, as a tool, not a replacement for thinking. I believe
-                  human judgment is necessary at every step of the process. Vibe coding is not
+                  AI is part of my development workflow, as a tool, not a replacement for thinking.
+                  Human judgment is necessary at every step of the process. Vibe coding is not
                   engineering. Understanding what you're building and why will always matter more
                   than how fast you generated it.
                 </p>

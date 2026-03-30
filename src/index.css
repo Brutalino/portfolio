@@ -638,7 +638,8 @@ body, html, #root {
   border-radius: 8px;
 }
 
-.more-project-card .neofetch-line {
+.more-project-card .neofetch-line,
+.project-slot .neofetch-line {
   white-space: normal;
   word-break: break-word;
 }
