@@ -1,8 +1,5 @@
 import React, { useEffect, useRef } from 'react'
 import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-gsap.registerPlugin(ScrollTrigger)
 
 const LINKS = [
   { label: 'github',   url: 'https://github.com/Brutalino',           display: 'github.com/Brutalino' },
@@ -17,18 +14,17 @@ export default function Footer() {
   useEffect(() => {
     const el = footerRef.current
     if (!el) return
-
-    gsap.set(el, { opacity: 0, y: 20 })
-
-    const st = ScrollTrigger.create({
-      trigger: el,
-      start: 'top 85%',
-      onEnter: () => {
-        gsap.to(el, { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' })
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          gsap.to(el, { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' })
+          observer.disconnect()
+        }
       },
-    })
-
-    return () => st.kill()
+      { threshold: 0.1 }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
   }, [])
 
   return (

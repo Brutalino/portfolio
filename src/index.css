@@ -731,6 +731,8 @@ body, html, #root {
   padding: 60px 30px 40px;
   display: flex;
   justify-content: center;
+  opacity: 0;
+  transform: translateY(20px);
 }
 
 .footer-content {
