@@ -10,19 +10,6 @@
   box-sizing: border-box;
 }
 
-/* PLACEHOLDER 16:9 — rimuovi quando hai finito */
-body::after {
-  content: '';
-  position: fixed;
-  width: min(100vw, calc(100vh * 16 / 9));
-  height: min(100vh, calc(100vw * 9 / 16));
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border: 2px dashed rgba(255, 0, 0, 0.5);
-  pointer-events: none;
-  z-index: 999999;
-}
 
 body, html, #root {
   width: 100%;
