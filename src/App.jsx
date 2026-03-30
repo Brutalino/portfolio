@@ -477,7 +477,7 @@ export default function App() {
     const handleMouseMove = (e) => { mouse.current = { x: e.clientX, y: e.clientY } }
     window.addEventListener('mousemove', handleMouseMove)
     const animate = () => {
-      const delaySpeed = 0.07
+      const delaySpeed = 0.18
       delayedMouse.current.x += (mouse.current.x - delayedMouse.current.x) * delaySpeed
       delayedMouse.current.y += (mouse.current.y - delayedMouse.current.y) * delaySpeed
       if (cursorRef.current) {
