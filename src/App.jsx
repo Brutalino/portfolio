@@ -606,6 +606,12 @@ export default function App() {
                   apps and whatever else seemed worth learning at the time. I write clean code, ask a
                   lot of questions and ship things that work.
                 </p>
+                <p className="bio-text">
+                  I use AI heavily in my workflow — as a tool, not a replacement for thinking. I'm a
+                  firm believer that human judgment is non-negotiable at every step of the process.
+                  Vibe coding is not engineering. Understanding what you're building and why will
+                  always matter more than how fast you generated it.
+                </p>
               </div>
             </div>
           </section>
