@@ -596,7 +596,7 @@ export default function App() {
               <div className="about-bio">
                 <p className="bio-text">
                   Fresh Computer Science graduate from UniBz with a genuine obsession for understanding
-                  how things work — from the math behind a neural network to the last line of a deploy
+                  how things work. From the math behind a neural network to the last line of a deploy
                   script. I gravitate toward AI, automation and robotics, and I'm at my best when a
                   problem requires connecting dots across disciplines.
                 </p>
@@ -607,10 +607,10 @@ export default function App() {
                   lot of questions and ship things that work.
                 </p>
                 <p className="bio-text">
-                  I use AI heavily in my workflow — as a tool, not a replacement for thinking. I'm a
-                  firm believer that human judgment is non-negotiable at every step of the process.
-                  Vibe coding is not engineering. Understanding what you're building and why will
-                  always matter more than how fast you generated it.
+                  I use AI heavily in my workflow, as a tool, not a replacement for thinking. I believe
+                  human judgment is necessary at every step of the process. Vibe coding is not
+                  engineering. Understanding what you're building and why will always matter more
+                  than how fast you generated it.
                 </p>
               </div>
             </div>
