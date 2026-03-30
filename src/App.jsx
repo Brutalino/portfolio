@@ -595,14 +595,16 @@ export default function App() {
               </TerminalWindow>
               <div className="about-bio">
                 <p className="bio-text">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
-                  incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                  exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  Fresh Computer Science graduate from UniBz with a genuine obsession for understanding
+                  how things work — from the math behind a neural network to the last line of a deploy
+                  script. I gravitate toward AI, automation and robotics, and I'm at my best when a
+                  problem requires connecting dots across disciplines.
                 </p>
                 <p className="bio-text">
-                  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                  fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                  culpa qui officia deserunt mollit anim id est laborum.
+                  My thesis pushed real-time action detection in video streams using CNNs and LSTMs.
+                  Outside of ML I've built full-stack crypto trading platforms, cross-platform mobile
+                  apps and whatever else seemed worth learning at the time. I write clean code, ask a
+                  lot of questions and ship things that work.
                 </p>
               </div>
             </div>
