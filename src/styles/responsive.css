@@ -110,6 +110,12 @@
     max-width: 100%;
   }
 
+  /* Terminal: rimuove overflow:hidden che su iOS crea un contesto di scroll
+     separato e blocca lo scroll della pagina quando il touch parte dentro */
+  .terminal-window {
+    overflow: visible;
+  }
+
   /* Neofetch: hide ASCII logo, allow lines to wrap */
   .neofetch-logo {
     display: none;
@@ -180,6 +186,31 @@
 
   .topbar-right {
     gap: 10px;
+  }
+}
+
+/* ── Dispositivi touch (hover: none) ────────────────── */
+/* Su iOS il :hover si attiva al tap e rimane stuck finché non si
+   tappa altrove. Resettiamo i colori hover su tutti i dispositivi
+   che non supportano hover reale (touch screens). */
+@media (hover: none) {
+  .terminal-window:hover,
+  .terminal-window:hover .terminal-window-border-bounce {
+    border-color: color-mix(in srgb, var(--accent-color) 35%, transparent);
+  }
+
+  .more-project-card:hover .more-project-border {
+    border-color: color-mix(in srgb, var(--accent-color) 35%, transparent);
+  }
+
+  .tech-card:hover {
+    border-color: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .tech-card:hover .tech-icon {
+    color: var(--fg-color);
+    opacity: 0.8;
   }
 }
 
