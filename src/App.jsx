@@ -511,6 +511,25 @@ export default function App() {
     return () => st.kill()
   }, [])
 
+  // Su mobile il terminale non viene attivato dallo scroll (face nascosta).
+  // Lo attiviamo con IntersectionObserver quando l'about-section entra in viewport.
+  useEffect(() => {
+    if (!isMobile) return
+    const el = aboutRef.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTerminalActive(true)
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.15 }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [isMobile])
+
   return (
     <div className="page">
 
@@ -628,8 +647,8 @@ export default function App() {
 
       </div>
 
-      {/* CURSORE — sopra a tutto */}
-      <div ref={cursorRef} className="custom-cursor"></div>
+      {/* CURSORE — solo desktop (su mobile non ha senso) */}
+      {!isMobile && <div ref={cursorRef} className="custom-cursor"></div>}
     </div>
   )
 }

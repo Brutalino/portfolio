@@ -67,6 +67,13 @@
 
 /* ── Mobile / tablet portrait ───────────────────────── */
 @media (max-width: 768px) {
+  /* Forza scroll nativo — GSAP ScrollTrigger aggiunge listener touch globali */
+  .page,
+  .content-container,
+  .scroll-spacer {
+    touch-action: pan-y;
+  }
+
   /* Hero: static centered layout (face is hidden via JS) */
   .hero-section {
     height: auto;
