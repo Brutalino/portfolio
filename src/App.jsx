@@ -499,7 +499,7 @@ export default function App() {
 
   useEffect(() => {
     const el = scrollIndicatorRef.current
-    if (!el) return
+    if (!el || isMobile) return  // su mobile non serve e crea listener touch che bloccano lo scroll
     const st = ScrollTrigger.create({
       trigger: document.body,
       start: 'top top',
@@ -509,7 +509,7 @@ export default function App() {
       },
     })
     return () => st.kill()
-  }, [])
+  }, [isMobile])
 
   // Su mobile il terminale non viene attivato dallo scroll (face nascosta).
   // Lo attiviamo con IntersectionObserver quando l'about-section entra in viewport.

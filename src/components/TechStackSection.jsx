@@ -58,10 +58,28 @@ export default function TechStackSection() {
 
   useEffect(() => {
     const items = itemsRef.current.filter(Boolean)
-    gsap.set(items, { opacity: 0, y: 20 })
+    const section = sectionRef.current
+    if (!section) return
 
+    // Su mobile GSAP ScrollTrigger aggiunge listener touch non-passivi che
+    // bloccano lo scroll iOS. Usiamo IntersectionObserver invece.
+    if (window.innerWidth <= 768) {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            gsap.to(items, { opacity: 1, y: 0, duration: 0.4, ease: 'power3.out', stagger: 0.04 })
+            observer.disconnect()
+          }
+        },
+        { threshold: 0.1 }
+      )
+      observer.observe(section)
+      return () => observer.disconnect()
+    }
+
+    gsap.set(items, { opacity: 0, y: 20 })
     const st = ScrollTrigger.create({
-      trigger: sectionRef.current,
+      trigger: section,
       start: 'top 75%',
       onEnter: () => {
         gsap.to(items, {

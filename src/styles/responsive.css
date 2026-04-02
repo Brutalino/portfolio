@@ -74,6 +74,10 @@
     touch-action: pan-y;
   }
 
+  .scroll-indicator {
+    display: none;
+  }
+
   /* Hero: static centered layout (face is hidden via JS) */
   .hero-section {
     height: auto;
