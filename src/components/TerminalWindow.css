@@ -1,0 +1,48 @@
+/* ═══════ TERMINALE ═══════ */
+.terminal-window {
+  border: 2px solid color-mix(in srgb, var(--accent-color) 35%, transparent);
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  will-change: transform, opacity;
+  position: relative;
+  transition: border-color 0.25s ease;
+}
+
+.terminal-window:hover {
+  border-color: var(--border-hover-color);
+}
+
+.terminal-window-border-bounce {
+  position: absolute;
+  inset: 0;
+  border: 2px solid color-mix(in srgb, var(--accent-color) 35%, transparent);
+  border-radius: 8px;
+  pointer-events: none;
+  transform-origin: top;
+  z-index: 10;
+  transition: border-color 0.25s ease;
+}
+
+.terminal-window:hover .terminal-window-border-bounce {
+  border-color: var(--border-hover-color);
+}
+
+.terminal-header {
+  display: flex;
+  align-items: center;
+  padding: 8px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.terminal-title {
+  font-family: monospace;
+  font-size: 13px;
+  color: var(--fg-color);
+  opacity: 0.4;
+}
+
+.terminal-body {
+  padding: 28px;
+}

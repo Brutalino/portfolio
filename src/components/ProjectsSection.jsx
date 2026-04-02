@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import TerminalWindow from './TerminalWindow'
+import './ProjectsSection.css'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -198,6 +199,16 @@ export default function ProjectsSection() {
   const startSequence = () => {
     if (hasStarted.current) return
     hasStarted.current = true
+
+    // Mobile: skip GSAP positioning — CSS handles layout, just activate typing effects
+    if (window.innerWidth <= 768) {
+      FEATURED.forEach((_, i) => {
+        setTimeout(() => {
+          setActiveCards(prev => { const next = [...prev]; next[i] = true; return next })
+        }, CARD_DELAYS[i])
+      })
+      return
+    }
 
     FEATURED.forEach((_, i) => {
       setTimeout(() => {

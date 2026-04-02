@@ -1,0 +1,192 @@
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE — tutti i media query in un unico posto
+   Breakpoints:
+     ≤ 1200px  laptop / small desktop
+     ≤  900px  tablet landscape
+     ≤  768px  mobile / tablet portrait  (major overhaul)
+     ≤  480px  small phones
+   ═══════════════════════════════════════════════════════ */
+
+/* ── Laptop / small desktop ─────────────────────────── */
+@media (max-width: 1200px) {
+  .about-content {
+    width: 62%;
+  }
+
+  .about-section {
+    padding: 15vh 6% 60px 40px;
+  }
+
+  .neofetch-logo {
+    font-size: 10px;
+  }
+
+  .techstack-grid {
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  .techstack-grid-container {
+    width: 85%;
+  }
+}
+
+/* ── Tablet landscape ───────────────────────────────── */
+@media (max-width: 900px) {
+  .about-content {
+    width: 72%;
+  }
+
+  .about-section {
+    padding: 10vh 4% 60px 30px;
+  }
+
+  .neofetch-logo {
+    font-size: 9px;
+  }
+
+  .more-projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .techstack-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .techstack-grid-container {
+    width: 95%;
+  }
+
+  .topbar-inner {
+    padding: 0 20px;
+  }
+
+  .topbar-right {
+    gap: 16px;
+  }
+}
+
+/* ── Mobile / tablet portrait ───────────────────────── */
+@media (max-width: 768px) {
+  /* Hero: static centered layout (face is hidden via JS) */
+  .hero-section {
+    height: auto;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 24px;
+  }
+
+  .hero-left,
+  .hero-right {
+    position: static;
+    max-width: 100%;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+  }
+
+  .hero-role-secondary {
+    align-self: center;
+  }
+
+  /* About: full width */
+  .about-section {
+    padding: 60px 20px 40px;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .about-content {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Neofetch: hide ASCII logo, allow lines to wrap */
+  .neofetch-logo {
+    display: none;
+  }
+
+  .neofetch-line {
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  /* Projects: undo GSAP absolute positioning */
+  .projects-scroll-zone {
+    height: auto;
+    overflow: visible;
+    padding: 20px 16px;
+  }
+
+  .projects-sticky {
+    position: relative;
+    top: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  /* !important overrides any lingering GSAP inline styles */
+  .project-slot {
+    position: relative !important;
+    width: 100% !important;
+    left: auto !important;
+    top: auto !important;
+    height: auto;
+    opacity: 1;
+    transform: none;
+  }
+
+  /* More projects: single column */
+  .more-projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Tech stack: 3 columns */
+  .techstack-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .techstack-grid-container {
+    width: 100%;
+    padding: 0 16px;
+  }
+
+  /* Tech card: remove min-width that caused overflow */
+  .tech-card {
+    min-width: 0 !important;
+    padding: 12px 8px;
+  }
+
+  .tech-name {
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  /* Topbar */
+  .topbar-inner {
+    padding: 0 12px;
+  }
+
+  .topbar-right {
+    gap: 10px;
+  }
+}
+
+/* ── Small phones ────────────────────────────────────── */
+@media (max-width: 480px) {
+  .techstack-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .terminal-body {
+    padding: 16px;
+  }
+
+  .neofetch {
+    font-size: 14px;
+  }
+}

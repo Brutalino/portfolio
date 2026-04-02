@@ -1,0 +1,139 @@
+/* ═══════ PROJECTS — scroll-driven tiling ═══════ */
+.projects-scroll-zone {
+  position: relative;
+  z-index: 2;
+  height: 65vh;
+  margin-bottom: 0;
+  overflow: clip;
+}
+
+.projects-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+/* Ogni card è absolutamente posizionata — GSAP controlla left, width, opacity, scale */
+.project-slot {
+  position: absolute;
+  top: 60px;
+  height: min(460px, calc(100vh - 120px));
+  opacity: 0;
+  transform: scale(0.85) translateY(10px);
+  /* left e width settati da GSAP */
+  will-change: transform, left, width, opacity;
+}
+
+.project-slot .terminal-window {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-slot .terminal-body {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.project-output {
+  margin-top: 8px;
+}
+
+.project-name {
+  font-weight: bold;
+  color: var(--accent-color);
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+.project-description {
+  color: var(--fg-color);
+  opacity: 0.8;
+  margin-bottom: 10px;
+  line-height: 1.7;
+  white-space: normal;
+  font-size: 15px;
+}
+
+.project-output a,
+.footer-section a {
+  color: var(--accent-color);
+  text-decoration: none;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.project-output a:hover,
+.footer-section a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+/* ═══════ MORE PROJECTS ═══════ */
+.more-projects-section {
+  position: relative;
+  z-index: 2;
+  padding: 10px 0 350px;
+}
+
+.more-projects-title {
+  font-family: monospace;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--fg-color);
+  opacity: 0.3;
+  margin: 0 4% 10px;
+}
+
+.more-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px 2%;
+  margin: 0 4%;
+  align-items: start;
+}
+
+.more-project-card {
+  cursor: pointer;
+  min-width: 0;
+  position: relative;
+  opacity: 0;
+  transform: translateY(40px) scale(0.88);
+}
+
+/* Bordo assoluto — scala con GSAP senza spostare il layout */
+.more-project-border {
+  position: absolute;
+  inset: 0;
+  border: 2px solid color-mix(in srgb, var(--accent-color) 35%, transparent);
+  border-radius: 8px;
+  pointer-events: none;
+  transform-origin: top;
+  z-index: 2;
+  transition: border-color 0.25s ease;
+}
+
+.more-project-card:hover .more-project-border,
+.more-project-card.expanded .more-project-border {
+  border-color: var(--border-hover-color);
+}
+
+/* Il terminal-window dentro la card non mostra il proprio bordo */
+.more-project-card .terminal-window {
+  border: none;
+  border-radius: 8px;
+}
+
+.more-project-card .neofetch-line,
+.project-slot .neofetch-line {
+  white-space: normal;
+  word-break: break-word;
+}
+
+.more-project-expand {
+  max-height: 0;
+  overflow: hidden;
+}

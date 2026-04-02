@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState, Suspense } from 'react'
+import './App.css'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { AsciiRenderer, OrbitControls, useGLTF } from '@react-three/drei'
 import * as THREE from 'three'
@@ -379,6 +380,7 @@ export default function App() {
   const [currentTheme, setCurrentTheme] = useState(themes.monochrome)
   const [themeOpen, setThemeOpen] = useState(false)
   const [terminalActive, setTerminalActive] = useState(false)
+  const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' && window.innerWidth <= 768)
   const canvasContainerRef = useRef(null)
   const faceWrapperRef = useRef(null)
   const aboutRef = useRef(null)
@@ -388,6 +390,12 @@ export default function App() {
   const delayedMouse = useRef({ x: 0, y: 0 })
 
   useAsciiDistortion(canvasContainerRef, currentTheme, delayedMouse)
+
+  useEffect(() => {
+    const onResize = () => setIsMobile(window.innerWidth <= 768)
+    window.addEventListener('resize', onResize)
+    return () => window.removeEventListener('resize', onResize)
+  }, [])
 
   // Tema → CSS vars
   // Reset scroll position al mount (evita ripristino browser)
@@ -506,29 +514,31 @@ export default function App() {
   return (
     <div className="page">
 
-      {/* VOLTO ASCII — fixed, animato da GSAP con lo scroll */}
-      <div className="face-wrapper" ref={faceWrapperRef}>
-        <div className="face-canvas" ref={canvasContainerRef}>
-          <Canvas camera={{ position: [0, 0, 10], fov: 50 }}>
-            <color attach="background" args={['black']} />
-            <ambientLight intensity={0.1} />
-            <CameraLight />
+      {/* VOLTO ASCII — fixed, animato da GSAP con lo scroll (solo desktop) */}
+      {!isMobile && (
+        <div className="face-wrapper" ref={faceWrapperRef}>
+          <div className="face-canvas" ref={canvasContainerRef}>
+            <Canvas camera={{ position: [0, 0, 10], fov: 50 }}>
+              <color attach="background" args={['black']} />
+              <ambientLight intensity={0.1} />
+              <CameraLight />
 
-            <Suspense fallback={null}>
-              <AsciiFace />
-            </Suspense>
+              <Suspense fallback={null}>
+                <AsciiFace />
+              </Suspense>
 
-            <AsciiRenderer
-              fgColor={currentTheme.foreground}
-              bgColor="transparent"
-              characters="  .:-+*=%@#"
-              resolution={0.15}
-            />
-            <ScrollCameraReset />
-            <OrbitControls enableZoom={false} enablePan={false} />
-          </Canvas>
+              <AsciiRenderer
+                fgColor={currentTheme.foreground}
+                bgColor="transparent"
+                characters="  .:-+*=%@#"
+                resolution={0.15}
+              />
+              <ScrollCameraReset />
+              <OrbitControls enableZoom={false} enablePan={false} />
+            </Canvas>
+          </div>
         </div>
-      </div>
+      )}
 
       {/* NAVBAR — email centro, nav+tema destra */}
       <nav className="topbar">
@@ -583,8 +593,8 @@ export default function App() {
             <div className="scroll-indicator" ref={scrollIndicatorRef}>scroll</div>
           </section>
 
-          {/* Spacer extra per dare più respiro all'animazione */}
-          <div style={{ height: '100vh' }} />
+          {/* Spacer extra per dare più respiro all'animazione — solo desktop */}
+          {!isMobile && <div className="hero-spacer" style={{ height: '100vh' }} />}
 
           {/* ABOUT — il volto è a sinistra, terminale + bio a destra */}
           <section className="about-section" ref={aboutRef}>

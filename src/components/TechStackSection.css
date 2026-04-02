@@ -1,0 +1,73 @@
+/* ═══════ TECH STACK ═══════ */
+.techstack-section {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 6% 240px;
+  min-height: 50vh;
+}
+
+.techstack-grid-container {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.techstack-title {
+  font-family: monospace;
+  font-size: clamp(18px, 2vw, 28px);
+  font-weight: bold;
+  color: var(--fg-color);
+  opacity: 0.4;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.techstack-grid {
+  display: grid;
+  grid-template-columns: repeat(11, 1fr);
+  gap: 12px;
+}
+
+.tech-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 14px;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  background: rgba(255,255,255,0.03);
+  transition: border-color 0.2s, background 0.2s;
+  cursor: default;
+  min-width: 80px;
+}
+
+.tech-card:hover {
+  border-color: var(--accent-color);
+  background: rgba(255,255,255,0.06);
+}
+
+.tech-icon {
+  width: 32px;
+  height: 32px;
+  color: var(--fg-color);
+  opacity: 0.8;
+}
+
+.tech-card:hover .tech-icon {
+  color: var(--accent-color);
+  opacity: 1;
+}
+
+.tech-name {
+  font-family: monospace;
+  font-size: 11px;
+  color: var(--fg-color);
+  opacity: 0.75;
+  text-align: center;
+  white-space: nowrap;
+}

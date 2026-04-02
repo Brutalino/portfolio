@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
+import './Neofetch.css'
 
 const ASCII_LOGO = [
   '⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡴⠞⢳⠀⠀⠀⠀⠀',

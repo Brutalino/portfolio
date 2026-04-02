@@ -1,0 +1,103 @@
+/* ═══════ NEOFETCH ═══════ */
+.neofetch {
+  font-family: 'Courier New', monospace;
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--fg-color);
+}
+
+.neofetch-prompt {
+  margin-bottom: 8px;
+}
+
+.prompt-symbol {
+  color: var(--accent-color);
+}
+
+.cursor {
+  transition: opacity 0.1s;
+}
+
+.neofetch-separator {
+  height: 1px;
+  background: var(--fg-color);
+  opacity: 0.15;
+  margin: 10px 0;
+}
+
+.neofetch-line {
+  white-space: pre;
+}
+
+.neofetch-label {
+  color: var(--accent-color);
+  font-weight: bold;
+}
+
+.neofetch-arrow {
+  opacity: 0.4;
+}
+
+.neofetch-value {
+  color: var(--fg-color);
+}
+
+/* ═══════ NEOFETCH LAYOUT ═══════ */
+.neofetch-layout {
+  display: flex;
+  gap: 24px;
+  margin-top: 8px;
+}
+
+.neofetch-logo {
+  color: var(--accent-color);
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  line-height: 1.3;
+  white-space: pre;
+  flex-shrink: 0;
+}
+
+.neofetch-logo-line {
+  transition: opacity 0.15s ease;
+}
+
+.neofetch-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.neofetch-header {
+  margin-bottom: 2px;
+  font-weight: bold;
+}
+
+.neofetch-at {
+  color: var(--fg-color);
+  opacity: 0.5;
+}
+
+.neofetch-separator-line {
+  color: var(--fg-color);
+  opacity: 0.3;
+  margin-bottom: 4px;
+}
+
+.neofetch-colors {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.neofetch-color-row {
+  display: flex;
+  gap: 2px;
+}
+
+.neofetch-color-block {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  border-radius: 2px;
+}

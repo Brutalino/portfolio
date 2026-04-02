@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import './TechStackSection.css'
 import {
   SiHtml5, SiCss, SiJavascript, SiTypescript, SiPython, SiC,
   SiReact, SiNodedotjs, SiMongodb, SiGit, SiLinux, SiGnubash,

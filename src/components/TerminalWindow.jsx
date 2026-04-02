@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react'
 import gsap from 'gsap'
+import './TerminalWindow.css'
 
 // skipAnimation: usato dalle project card dove l'animazione è gestita dal parent (GSAP sulla slot)
 export default function TerminalWindow({ children, active, title = '~/.portfolio', skipAnimation = false }) {

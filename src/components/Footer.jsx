@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import gsap from 'gsap'
+import './Footer.css'
 
 const LINKS = [
   { label: 'github',   url: 'https://github.com/Brutalino',           display: 'github.com/Brutalino' },
