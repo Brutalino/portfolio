@@ -114,10 +114,13 @@
     max-width: 100%;
   }
 
-  /* Terminal: rimuove overflow:hidden che su iOS crea un contesto di scroll
-     separato e blocca lo scroll della pagina quando il touch parte dentro */
+  /* Terminal: su iOS overflow:hidden, backdrop-filter e will-change creano
+     compositing layer che catturano touch e bloccano lo scroll della pagina */
   .terminal-window {
     overflow: visible;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    will-change: auto;
   }
 
   /* Neofetch: hide ASCII logo, allow lines to wrap */

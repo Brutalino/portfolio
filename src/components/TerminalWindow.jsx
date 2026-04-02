@@ -10,6 +10,7 @@ export default function TerminalWindow({ children, active, title = '~/.portfolio
 
   useEffect(() => {
     if (skipAnimation) return
+    if (window.innerWidth <= 768) return  // su mobile niente scaleY:0 — crea compositing layer che blocca scroll iOS
     const el = terminalRef.current
     if (!el) return
     gsap.set(el, { scaleY: 0, opacity: 1, transformOrigin: 'top' })
@@ -17,6 +18,7 @@ export default function TerminalWindow({ children, active, title = '~/.portfolio
 
   useEffect(() => {
     if (skipAnimation) return
+    if (window.innerWidth <= 768) return  // su mobile il terminale è già visibile
     if (active && !hasAnimated.current) {
       hasAnimated.current = true
       const el     = terminalRef.current
