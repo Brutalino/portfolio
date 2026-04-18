@@ -1,10 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import TerminalWindow from './TerminalWindow'
 import './ProjectsSection.css'
-
-gsap.registerPlugin(ScrollTrigger)
 
 // ─── AGGIUNGI PROGETTI QUI ───────────────────────────────────────────────────
 // I primi 3 vanno nel tiling animato. Dal 4° in poi → griglia sotto.

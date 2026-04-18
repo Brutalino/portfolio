@@ -130,8 +130,10 @@ export default function Neofetch({ active, theme }) {
                     <span className="neofetch-label" style={{ color: labelColor }}>
                       {line.label.padEnd(maxLabel)}
                     </span>
-                    <span className="neofetch-arrow"> → </span>
-                    <span className="neofetch-value">{line.value}</span>
+                    <span className="neofetch-value-line">
+                      <span className="neofetch-arrow"> → </span>
+                      <span className="neofetch-value">{line.value}</span>
+                    </span>
                   </div>
                 )
               })}

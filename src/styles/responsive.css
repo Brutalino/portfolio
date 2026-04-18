@@ -7,6 +7,39 @@
      ≤  480px  small phones
    ═══════════════════════════════════════════════════════ */
 
+/* ── Laptop non-16:9 (MacBook, 16:10, ecc.) ─────────── */
+/* A questo range il container about-content al 50% è troppo stretto
+   per il layout neofetch (logo 180px + gap + info), e la griglia
+   techstack con repeat(11,1fr) + min-width:80px overflow a destra. */
+@media (max-width: 1440px) {
+  .about-content {
+    width: 56%;
+  }
+
+  .about-section {
+    padding: 18vh 8% 60px 50px;
+  }
+
+  .techstack-grid {
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  .techstack-grid-container {
+    width: 85%;
+  }
+
+  /* Neofetch: label su riga 1, valore su riga 2 — più leggibile su schermi stretti */
+  .neofetch-line {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Collassa gli spazi trailing del padEnd — non servono su due righe */
+  .neofetch-label {
+    white-space: normal;
+  }
+}
+
 /* ── Laptop / small desktop ─────────────────────────── */
 @media (max-width: 1200px) {
   .about-content {
@@ -158,6 +191,7 @@
     height: auto;
     opacity: 1;
     transform: none;
+    will-change: auto;  /* reset GPU compositing layer — può bloccare touch su iOS */
   }
 
   /* More projects: single column */

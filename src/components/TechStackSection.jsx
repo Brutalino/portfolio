@@ -14,7 +14,7 @@ import { DiPhotoshop } from 'react-icons/di'
 import { BsDatabase, BsImage } from 'react-icons/bs'
 import { TbBrain, TbEye, TbChartLine, TbApi } from 'react-icons/tb'
 
-gsap.registerPlugin(ScrollTrigger)
+// NON registrare ScrollTrigger a livello di modulo — vedi App.jsx per la spiegazione
 
 const TECHS = [
   { icon: FaJava,          name: 'Java'           },
@@ -77,6 +77,7 @@ export default function TechStackSection() {
       return () => observer.disconnect()
     }
 
+    gsap.registerPlugin(ScrollTrigger)  // solo desktop — chiamato dopo il return mobile sopra
     gsap.set(items, { opacity: 0, y: 20 })
     const st = ScrollTrigger.create({
       trigger: section,

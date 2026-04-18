@@ -17,8 +17,13 @@ body, html, #root {
   background-color: var(--bg-color);
   color: var(--fg-color);
   transition: background-color 0.5s ease, color 0.5s ease;
-  overflow-x: hidden;
   font-family: 'Courier New', monospace;
+}
+
+/* overflow-x solo su body e #root — applicarlo anche a html crea due scroll
+   container separati in Chrome/Firefox (doppia scrollbar) */
+body, #root {
+  overflow-x: hidden;
 }
 
 /* ═══════ PAGINA SCROLLABILE ═══════ */

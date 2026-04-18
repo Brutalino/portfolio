@@ -12,7 +12,11 @@ import ProjectsSection from './components/ProjectsSection'
 import TechStackSection from './components/TechStackSection'
 import Footer from './components/Footer'
 
-gsap.registerPlugin(ScrollTrigger)
+// NON chiamare gsap.registerPlugin(ScrollTrigger) qui a livello di modulo.
+// Se lo facciamo, GSAP aggiunge listener touch non-passivi al documento
+// prima che qualsiasi guard mobile possa intervenire. Su iOS (WebKit) questi
+// listener interferiscono con lo scroll nativo. registerPlugin va chiamato
+// solo all'interno degli useEffect, nei branch desktop-only.
 
 // Disabilita il ripristino automatico della posizione di scroll del browser
 if (typeof window !== 'undefined') {
@@ -415,7 +419,11 @@ export default function App() {
   // Tutto guidato da un unico progress smoothed per evitare blocchi/desync
   useEffect(() => {
     const wrapper = faceWrapperRef.current
-    if (!wrapper) return
+    if (!wrapper) return  // null su mobile (face non renderizzata) → registerPlugin mai chiamato
+
+    // Registriamo ScrollTrigger qui, solo su desktop, dopo il guard mobile.
+    // Così i listener touch di GSAP non vengono mai aggiunti su iOS.
+    gsap.registerPlugin(ScrollTrigger)
 
     let rawProgress = 0
     let smoothProgress = 0
@@ -500,6 +508,7 @@ export default function App() {
   useEffect(() => {
     const el = scrollIndicatorRef.current
     if (!el || isMobile) return  // su mobile non serve e crea listener touch che bloccano lo scroll
+    gsap.registerPlugin(ScrollTrigger)  // idempotente — sicuro chiamarlo più volte
     const st = ScrollTrigger.create({
       trigger: document.body,
       start: 'top top',
